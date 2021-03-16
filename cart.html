@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Ionicons CSS -->
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="assets/css/app.css" >
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Features-Blue.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-Clean.css">
+    <link rel="stylesheet" href="assets/css/Team-Grid.css">
+    <link rel="stylesheet" href="assets/css/Social-Icons.css">
+
+    <title>Carrito de Compras</title>
+
+  </head>
+  <body>
+  <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container" style="background-image: url(assets/img/encabezado.png); background-repeat: no-repeat; height:80px; margin-top: 20px;"><a class="navbar-brand" href="#" ></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" 
+                id="navcol-1"><ul class="nav navbar-nav mr-auto"style="padding-left:300px;">
+                    <li class="nav-item"><a class="nav-link" href="Contacto.html">Ubicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="QuienesSomos.html">¿Quiénes Somos?</a></li>
+					<!-- <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#">Dropdown </a>
+                       <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                    </li> -->
+                </ul><span class="navbar-text actions" style="height: 47px;width: 152px;padding: -6px;margin: 0px;margin-left: 18px;" ><a class="btn btn-light action-button" role="button" href="#" ><img src="assets/img/usuario.png"></a></span></div>
+        </div>
+    </nav>
+	
+	
+	<div class="team-grid" style="background-image: url(assets/img/snack1.jpg); background-repeat: no-repeat;">
+        <div class="container">
+            <div class="intro" >
+                <i> <h2 class="text-center" style="padding-bottom:50px;">Productos</h2> </i>
+            </div>
+        </div>
+    </div>
+	
+	
+    <!--<div class="pt-5 text-center">
+        <h1>Carrito de compras</h1>
+    </div>-->
+
+    <div class="container pt-5">
+        <div class="row">
+
+            <table class="table">
+                <thead  style="background-color:#FF8C00; border: 1px solid #fff">
+                  <tr>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <script>for(let i=0;i<5;i++){</script>
+                    <tr>
+                        <td><img src="Imagenes/producto01.jpg" width="180" alt="..."></td>
+                        <td class="pt-5">15.00</td>
+                        <td class="pt-5"><input type="text" name="cant" value="1" class="form-control"></td>
+                        <td class="pt-5">15.00</td>
+                        <td class="pt-5"><button id="btn-delete" class="btn btn-danger"><i class="icon ion-md-trash"></i></button></td>
+                    </tr>
+					 <script>}</script>
+                    <tr>
+                        <td><img src="Imagenes/producto02.jpg" width="180" alt="..."></td>
+                        <td class="pt-5">20.00</td>
+                        <td class="pt-5"><input type="text" name="cant" value="1" class="form-control"></td>
+                        <td class="pt-5">20.00</td>
+                        <td class="pt-5"><button id="btn-delete" class="btn btn-danger"><i class="icon ion-md-trash"></i></button></td>
+                    </tr>
+     
+                </tbody>
+              </table>
+              
+              
+
+        </div>
+
+        <a href="index.html" class="btn btn-primary">Seguir Comprando</a>
+        <h4 class="text-right">Total <span id="total" class="text-dark" >$0.00</span></h4>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            
+            $(document).on("click","#btn-delete",function(){
+
+                $(this).parent().parent().remove();
+
+                getTotal();
+
+            });
+
+            $(document).on("keyup","input[name*=cant]",function(){
+
+                var SubTutal=$(this).val()*$(this).closest("tr").find("td:eq(1)").html();
+                $(this).closest("tr").find("td:eq(3)").html(SubTutal.toFixed(2));
+                
+                getTotal();
+
+            }); 
+            
+        });
+
+        function getTotal(){
+            total=0;
+            $("tbody tr").each(function(){
+                total=total+Number($(this).find("td:eq(3)").html());
+            });
+            
+            $("#total").html("$"+total.toFixed(2));
+        }
+    </script>
+</body>
+</html>
