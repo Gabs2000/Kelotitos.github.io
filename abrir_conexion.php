@@ -8,8 +8,8 @@
 	
 	$conexion = new mysqli($server, $user, $pass, $db);
 
-	if($conexion->connect_error)
-	echo $conexion->conecct_error;
+	if($conexion->connect_error){
+		die("No se pudo conectar");}
 	
 
 
